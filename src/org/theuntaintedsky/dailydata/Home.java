@@ -1,10 +1,10 @@
-package org.theuntaintedsky.helloworld;
+package org.theuntaintedsky.dailydata;
 
 import android.app.*;
 import android.os.*;
 import android.view.*;
 
-public class HelloWorld extends Activity {
+public class Home extends Activity {
     /**
      * Called when the activity is first created.
      */
