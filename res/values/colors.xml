@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="default_background">#bcd2ee</color>
     <color name="default_blue">#4f94cd</color>
     <color name="light_green">#55be3a</color>
     <color name="default_green">#55ae3a</color>

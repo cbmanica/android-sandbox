@@ -3,14 +3,14 @@
               android:orientation="vertical"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
-              android:background="@color/default_blue"
+              android:background="@color/default_background"
         >
     <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#000000">
+            android:background="@color/default_blue">
         <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/dailydata"
@@ -25,11 +25,12 @@
                 android:id="@+id/hello_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hello, world 2!"
+                android:text="@string/add_descriptors"
                 android:layout_gravity="center"
                 android:padding="10px"
                 android:background="@drawable/green_button_drawable"
                 android:textColor="#000000"
+                android:onClick="addDataPoint"
                 />
     </FrameLayout>
 </LinearLayout>

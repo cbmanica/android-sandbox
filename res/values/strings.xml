@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Daily Data</string>
+    <string name="add_descriptors">ADD COLLECTION</string>
+    <string name="manage_descriptors">ADD/MANAGE COLLECTIONS</string>
+    <string name="view_data">VIEW DATA</string>
 </resources>

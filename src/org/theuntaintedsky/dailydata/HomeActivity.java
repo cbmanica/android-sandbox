@@ -36,16 +36,20 @@ public class HomeActivity extends android.app.Activity implements LoaderManager.
         manager.close();
 
         // Create an empty adapter we will use to display the loaded data.
-//        mAdapter = new SimpleCursorAdapter(getActivity(),
+//        mAdapter = new SimpleCursorAdapter(this,
 //                android.R.layout.simple_list_item_2, null,
 //                new String[]{},
-//                new int[]{android.R.id.text1, android.R.id.text2}, 0);
-        CursorLoader foo;
+//                new int[]{android.R.id.text1, android.R.id.text2});
         final Cursor cursor = getContentResolver().query(DataDescriptor.URI, new String[]{DataDescriptor.Columns.DESCRIPTION}, null, null, null);
         final android.content.ContentValues values = new android.content.ContentValues();
         values.put(DataDescriptor.Columns.DESCRIPTION, "Hello, world!");
         getContentResolver().insert(DataDescriptor.URI, values);
         cursor.requery(); // sigh, they changed everything I knew...
-        TypefaceManager.applyTypeface(getAssets(), TypefaceManager.Types.DEFAULT_LARGE, (TextView) findViewById(R.id.hello_view));
+        TypefaceManager.applyTypeface(getAssets(), TypefaceManager.Types.DEFAULT, (TextView) findViewById(R.id.hello_view));
+
+//        new Fragment().getLoaderManager().initLoader(0, null, this);
+    }
+
+    public void addDataPoint(View view) {
     }
 }
