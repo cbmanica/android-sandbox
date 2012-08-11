@@ -1,6 +1,8 @@
 package org.theuntaintedsky.dailydata.data.table;
 
 import android.database.sqlite.*;
+import android.net.*;
+import org.theuntaintedsky.dailydata.data.provider.*;
 
 /**
  * <p/>
@@ -13,6 +15,7 @@ import android.database.sqlite.*;
 public class DataDescriptor {
     private static DataDescriptor _instance = null;
     public static final String TABLE = "descriptors";
+    public static final Uri URI = Uri.parse("content://" + DataDescriptorProvider.AUTHORITY + "/descriptors");
 
     public interface Columns {
         static final String ID = "_id";

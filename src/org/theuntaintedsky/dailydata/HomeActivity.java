@@ -1,9 +1,12 @@
 package org.theuntaintedsky.dailydata;
 
 import android.app.*;
+import android.content.*;
+import android.database.*;
 import android.os.*;
 import android.view.*;
 import org.theuntaintedsky.dailydata.data.*;
+import org.theuntaintedsky.dailydata.data.table.*;
 
 public class HomeActivity extends Activity {
     /**
@@ -14,7 +17,14 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main);
-        // TODO do the query
-        final DatabaseManager openHelper = new DatabaseManager(this);
+        final DatabaseManager manager = new DatabaseManager(this);
+        manager.close();
+        final Cursor cursor = getContentResolver().query(DataDescriptor.URI, new String[]{DataDescriptor.Columns.DESCRIPTION}, null, null, null);
+        System.out.println("PORK 1 it worked?  Got back " + cursor.getCount());
+        final ContentValues values = new ContentValues();
+        values.put(DataDescriptor.Columns.DESCRIPTION, "Hello, world!");
+        getContentResolver().insert(DataDescriptor.URI, values);
+        cursor.requery(); // sigh, they changed everything I knew...
+        System.out.println("PORK 2 it worked?  Got back " + cursor.getCount());
     }
 }

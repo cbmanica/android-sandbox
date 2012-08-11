@@ -5,6 +5,7 @@ import android.database.*;
 import android.database.sqlite.*;
 import android.net.*;
 import org.theuntaintedsky.dailydata.data.*;
+import org.theuntaintedsky.dailydata.data.table.*;
 
 /**
  * <p/>
@@ -15,7 +16,7 @@ import org.theuntaintedsky.dailydata.data.*;
  *          rights reserved.<br/>
  */
 public class DataDescriptorProvider extends ContentProvider {
-    private static final String AUTHORITY = "org.theuntaintedsky.dailydata.provider." + DataDescriptorProvider.class.getSimpleName();
+    public static final String AUTHORITY = "org.theuntaintedsky.dailydata.data.provider." + DataDescriptorProvider.class.getSimpleName();
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     private static final int DESCRIPTORS = 1;
@@ -35,18 +36,19 @@ public class DataDescriptorProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        System.out.println("PORK Querying the provider");
-        final SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+        obtain();
 
         switch (uriMatcher.match(uri)) {
             case DESCRIPTORS:
                 break;
             default:
-                throw new IllegalArgumentException("Unknown URI " + uri);
+                throw new IllegalArgumentException("Unhandled URI: " + uri);
         }
 
+        final SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+        queryBuilder.setTables(DataDescriptor.TABLE);
         final SQLiteDatabase db = manager.getReadableDatabase();
-        final Cursor c = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+        final Cursor c = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
 
         c.setNotificationUri(getContext().getContentResolver(), uri);
         return c;
@@ -59,7 +61,24 @@ public class DataDescriptorProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues contentValues) {
-        return null;  // TODO
+        obtain();
+
+        switch (uriMatcher.match(uri)) {
+            case DESCRIPTORS:
+                break;
+            default:
+                throw new IllegalArgumentException("Unhandled URI: " + uri);
+        }
+
+        final SQLiteDatabase db = manager.getWritableDatabase();
+        final ContentValues values = contentValues != null ? contentValues : new ContentValues();
+        final long rowId = db.insert(DataDescriptor.TABLE, DataDescriptor.Columns.DESCRIPTION, values);
+        if (rowId > 0) {
+            final Uri newRow = ContentUris.withAppendedId(DataDescriptor.URI, rowId);
+            getContext().getContentResolver().notifyChange(newRow, null);
+            return newRow;
+        }
+        throw new SQLException("Failed to insert new row at " + uri);
     }
 
     @Override
