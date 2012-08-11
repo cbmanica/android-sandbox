@@ -2,9 +2,13 @@ package org.theuntaintedsky.dailydata;
 
 import android.app.*;
 import android.content.*;
+import android.content.res.*;
 import android.database.*;
+import android.graphics.*;
 import android.os.*;
+import android.util.*;
 import android.view.*;
+import android.widget.*;
 import org.theuntaintedsky.dailydata.data.*;
 import org.theuntaintedsky.dailydata.data.table.*;
 
@@ -26,5 +30,10 @@ public class HomeActivity extends Activity {
         getContentResolver().insert(DataDescriptor.URI, values);
         cursor.requery(); // sigh, they changed everything I knew...
         System.out.println("PORK 2 it worked?  Got back " + cursor.getCount());
+        final AssetManager assetManager = getAssets();
+        final Typeface lg = Typeface.createFromAsset(assetManager, "league_gothic.ttf");
+        ((TextView) findViewById(R.id.hello_view)).setTypeface(lg);
+        ((TextView) findViewById(R.id.hello_view)).setTextSize(TypedValue.COMPLEX_UNIT_PT, 16);
+
     }
 }
