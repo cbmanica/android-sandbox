@@ -21,14 +21,15 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             >
-        <TextView
+        <Button
                 android:id="@+id/hello_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hello, world 2!"
                 android:layout_gravity="center"
                 android:padding="10px"
-                android:background="@drawable/rounded_corners_white"
+                android:background="@drawable/green_button_drawable"
+                android:textColor="#000000"
                 />
     </FrameLayout>
 </LinearLayout>

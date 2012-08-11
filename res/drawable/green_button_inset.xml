@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Shamelessly copied from the work of a genius at http://blog.donnfelker.com/2011/08/01/android-rounded-corners-with-a-beveldrop-shadow/ -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Top highlight -->
+    <item android:bottom="1px">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/button_green_inset_highlight"/>
+            <corners android:radius="7dp"/>
+        </shape>
+    </item>
+
+    <!-- Bottom shadow -->
+    <item android:top="1px">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/button_green_inset_shadow"/>
+            <corners android:radius="7dp"/>
+        </shape>
+    </item>
+
+    <!-- Main button -->
+    <item android:top="1px" android:bottom="1px">
+        <shape android:shape="rectangle">
+            <gradient
+                    android:angle="270"
+                    android:startColor="@color/button_green_inset_graddark"
+                    android:endColor="@color/button_green_inset_gradlight"
+                    />
+            <corners android:radius="7dp"/>
+        </shape>
+    </item>
+</layer-list>

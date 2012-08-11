@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="default_blue">#4f94cd</color>
+    <color name="light_green">#55be3a</color>
+    <color name="default_green">#55ae3a</color>
+    <color name="dark_green">#567e3a</color>
+
+    <color name="button_green_normal_highlight">#55be3a</color>
+    <color name="button_green_normal_gradlight">#55ae3a</color>
+    <color name="button_green_normal_graddark">#567e3a</color>
+    <color name="button_green_normal_shadow">#565e3a</color>
+
+    <color name="button_green_inset_highlight">#567a3a</color>
+    <color name="button_green_inset_gradlight">#55943a</color>
+    <color name="button_green_inset_graddark">#566e3a</color>
+    <color name="button_green_inset_shadow">#55873a</color>
 </resources>
