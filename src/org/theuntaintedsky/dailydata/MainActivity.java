@@ -10,7 +10,7 @@ import org.theuntaintedsky.dailydata.data.*;
 import org.theuntaintedsky.dailydata.data.table.*;
 import org.theuntaintedsky.dailydata.ui.*;
 
-public class HomeActivity extends android.app.Activity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class MainActivity extends FragmentActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     @Override
     public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
         return null;  // TODO
@@ -30,7 +30,7 @@ public class HomeActivity extends android.app.Activity implements LoaderManager.
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main_activity);
 
         final DatabaseManager manager = new DatabaseManager(this);
         manager.close();
@@ -51,5 +51,6 @@ public class HomeActivity extends android.app.Activity implements LoaderManager.
     }
 
     public void addDataPoint(View view) {
+        System.out.println("*** addDataPoint()");
     }
 }

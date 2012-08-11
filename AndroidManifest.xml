@@ -7,7 +7,7 @@
                  android:icon="@drawable/dd_launcher">
         <provider android:name=".data.provider.DataDescriptorProvider"
                   android:authorities="org.theuntaintedsky.dailydata.data.provider.DataDescriptorProvider"/>
-        <activity android:name=".HomeActivity"
+        <activity android:name=".MainActivity"
                   android:label="@string/app_name"
                   android:theme="@android:style/Theme.NoTitleBar"
                 >
