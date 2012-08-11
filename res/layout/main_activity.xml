@@ -16,6 +16,23 @@
                 android:src="@drawable/dailydata"
                 />
     </FrameLayout>
+    <FrameLayout
+            android:layout_marginTop="15px"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+        <Button
+                android:id="@+id/hello_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_descriptors"
+                android:layout_gravity="center"
+                android:padding="10px"
+                android:background="@drawable/green_button_drawable"
+                android:textColor="#000000"
+                android:onClick="addDataPoint"
+                />
+    </FrameLayout>
     <fragment android:name="org.theuntaintedsky.dailydata.HomeFragment"
               android:id="@+id/main"
               android:layout_width="fill_parent"

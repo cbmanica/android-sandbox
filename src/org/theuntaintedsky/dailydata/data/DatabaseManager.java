@@ -18,7 +18,6 @@ public class DatabaseManager extends SQLiteOpenHelper {
 
     public DatabaseManager(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        System.out.println("PORK Creating the open helper");
     }
 
     @Override

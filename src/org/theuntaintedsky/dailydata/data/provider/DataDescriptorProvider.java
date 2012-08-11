@@ -50,6 +50,7 @@ public class DataDescriptorProvider extends ContentProvider {
         final SQLiteDatabase db = manager.getReadableDatabase();
         final Cursor c = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
 
+        System.out.println("PORK " + projection[0] + ", Selection=" + selection + ", args=" + selectionArgs);
         c.setNotificationUri(getContext().getContentResolver(), uri);
         return c;
     }
