@@ -49,7 +49,7 @@ public class HomeFragment extends ListFragment implements LoaderManager.LoaderCa
     @Override
     public View onCreateView(LayoutInflater inflater, android.view.ViewGroup container, Bundle savedInstanceState) {
         final View ret = inflater.inflate(R.layout.home_fragment, container, false);
-        TypefaceManager.applyTypeface(getActivity().getAssets(), TypefaceManager.Types.DEFAULT, (TextView) ret.findViewById(R.id.hello_view));
+        TypefaceManager.applyTypeface(getActivity().getAssets(), TypefaceManager.Types.DEFAULT, (TextView) ret.findViewById(R.id.home_add_button));
         return ret;
     }
 
@@ -75,6 +75,8 @@ public class HomeFragment extends ListFragment implements LoaderManager.LoaderCa
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        System.out.println("*** Edit collection clicked, index is " + i);
+        final Cursor cursor = adapter.getCursor();
+        cursor.moveToPosition(i);
+        ((MainActivity) getActivity()).loadEditCollectionFragment(cursor.getInt(0));
     }
 }

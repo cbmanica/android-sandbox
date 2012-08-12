@@ -7,7 +7,7 @@ import org.theuntaintedsky.dailydata.data.*;
 
 public class MainActivity extends FragmentActivity {
     private Fragment homeFragment = null;
-    private Fragment editCollectionFragment = null;
+    private EditCollectionFragment editCollectionFragment = null;
     private boolean homeInserted = false;
 
     @Override
@@ -44,13 +44,13 @@ public class MainActivity extends FragmentActivity {
 //        final android.content.ContentValues values = new android.content.ContentValues();
 //        values.put(DataDescriptor.Columns.DESCRIPTION, "Hello, world!");
 //        getContentResolver().insert(DataDescriptor.URI, values);
-        loadEditCollectionFragment();
     }
 
-    protected void loadEditCollectionFragment() {
+    protected void loadEditCollectionFragment(int id) {
         if (editCollectionFragment == null) {
             editCollectionFragment = new EditCollectionFragment();
         }
+        editCollectionFragment.setCollectionId(id);
         final FragmentManager fragmentManager = getSupportFragmentManager();
         final FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, android.R.anim.slide_in_left, android.R.anim.slide_out_right);

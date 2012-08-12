@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="default_list" parent="@android:style/Widget.ListView">
-        <!--<item name="android:listSelector">@drawable/list_selector</item>-->
+        <!--<item name="android:listSelector">@drawable/green_selector</item>-->
     </style>
 </resources>

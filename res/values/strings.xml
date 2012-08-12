@@ -4,4 +4,6 @@
     <string name="add_descriptors">ADD COLLECTION</string>
     <string name="manage_descriptors">ADD/MANAGE COLLECTIONS</string>
     <string name="view_data">VIEW DATA</string>
+    <string name="save_button">SAVE</string>
+    <string name="cancel_button">CANCEL</string>
 </resources>

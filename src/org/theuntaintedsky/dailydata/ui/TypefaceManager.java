@@ -41,16 +41,18 @@ public class TypefaceManager {
         return ret;
     }
 
-    public static void applyTypeface(AssetManager manager, Types type, TextView textView) {
-        textView.setTypeface(getTypeface(manager, type));
-        switch (type) {
-            case DEFAULT:
-            default:
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_PT, 10);
-                break;
-            case DEFAULT_LARGE:
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_PT, 14);
-                break;
+    public static void applyTypeface(AssetManager manager, Types type, TextView... textViews) {
+        for (TextView textView : textViews) {
+            textView.setTypeface(getTypeface(manager, type));
+            switch (type) {
+                case DEFAULT:
+                default:
+                    textView.setTextSize(TypedValue.COMPLEX_UNIT_PT, 10);
+                    break;
+                case DEFAULT_LARGE:
+                    textView.setTextSize(TypedValue.COMPLEX_UNIT_PT, 14);
+                    break;
+            }
         }
     }
 }
