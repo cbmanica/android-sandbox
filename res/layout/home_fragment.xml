@@ -1,23 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:orientation="vertical"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:paddingLeft="8dp"
-             android:paddingRight="8dp"
-        >
-    <ListView android:id="@id/android:list"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_weight="1"
-              android:drawSelectorOnTop="false"
-              style="@style/default_list"
-            />
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
+    <FrameLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+        <Button
+                android:id="@+id/hello_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_descriptors"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:background="@drawable/green_button_drawable"
+                android:textColor="#000000"
+                android:onClick="addDataPoint"
+                />
+    </FrameLayout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                 android:orientation="vertical"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:paddingLeft="8dp"
+                 android:paddingRight="8dp"
+            >
+        <ListView android:id="@id/android:list"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_weight="1"
+                  android:drawSelectorOnTop="false"
+                  style="@style/default_list"
+                />
 
-    <TextView android:id="@id/android:empty"
-              android:layout_height="wrap_content"
-              android:layout_width="wrap_content"
-              android:layout_gravity="center"
-              android:textColor="#666666"
-              android:text="You have no collections.  Add some!"/>
-</FrameLayout>
+        <TextView android:id="@id/android:empty"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:layout_gravity="center"
+                  android:textColor="#666666"
+                  android:text="You have no collections.  Add some!"/>
+    </FrameLayout>
+</LinearLayout>

@@ -4,9 +4,12 @@ import android.database.*;
 import android.os.*;
 import android.support.v4.app.*;
 import android.support.v4.content.*;
-import android.support.v4.widget.*;
+import android.support.v4.widget.CursorAdapter;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.*;
+import android.widget.*;
 import org.theuntaintedsky.dailydata.data.table.*;
+import org.theuntaintedsky.dailydata.ui.*;
 
 /**
  * <p/>
@@ -16,7 +19,7 @@ import org.theuntaintedsky.dailydata.data.table.*;
  * @version $Revision: 1.0 Created 8/11/12 2:26 PM<br/> Copyright 2012 Turner Broadcasting, Inc.<br/> All
  *          rights reserved.<br/>
  */
-public class HomeFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor> {
+public class HomeFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, AdapterView.OnItemClickListener {
     private CursorAdapter adapter;
 
     @Override
@@ -45,7 +48,9 @@ public class HomeFragment extends ListFragment implements LoaderManager.LoaderCa
 
     @Override
     public View onCreateView(LayoutInflater inflater, android.view.ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.home_fragment, container, false);
+        final View ret = inflater.inflate(R.layout.home_fragment, container, false);
+        TypefaceManager.applyTypeface(getActivity().getAssets(), TypefaceManager.Types.DEFAULT, (TextView) ret.findViewById(R.id.hello_view));
+        return ret;
     }
 
     @Override
@@ -65,5 +70,11 @@ public class HomeFragment extends ListFragment implements LoaderManager.LoaderCa
         setListAdapter(adapter);
 //        setListShown(false);
         getLoaderManager().initLoader(0, null, this);
+        getListView().setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        System.out.println("*** Edit collection clicked, index is " + i);
     }
 }

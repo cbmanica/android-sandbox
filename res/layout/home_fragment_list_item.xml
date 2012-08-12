@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:paddingTop="10px"
-              android:paddingBottom="10px"
+              android:paddingTop="10dp"
+              android:paddingBottom="10dp"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="horizontal"
@@ -12,5 +12,7 @@
               android:textSize="16sp"
               android:textStyle="bold"
               android:layout_width="match_parent"
-              android:layout_height="wrap_content"/>
+              android:layout_height="wrap_content"
+              android:onClick="editCollection"
+            />
 </LinearLayout>
