@@ -6,6 +6,10 @@
     <color name="default_green">#55ae3a</color>
     <color name="dark_green">#567e3a</color>
 
+    <color name="list_item_background">#eeeeee</color>
+    <color name="list_item_gradlight">#bced91</color>
+    <color name="list_item_graddark">#a2c257</color>
+
     <color name="button_green_normal_highlight">#55be3a</color>
     <color name="button_green_normal_gradlight">#55ae3a</color>
     <color name="button_green_normal_graddark">#567e3a</color>

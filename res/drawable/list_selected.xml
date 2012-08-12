@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Main button -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                    android:angle="270"
+                    android:startColor="@color/list_item_gradlight"
+                    android:endColor="@color/list_item_graddark"
+                    />
+            <!--<corners android:radius="7dp"/>-->
+            <!--<solid android:color="@color/list_item_highlight"/>-->
+        </shape>
+    </item>
+</layer-list>
